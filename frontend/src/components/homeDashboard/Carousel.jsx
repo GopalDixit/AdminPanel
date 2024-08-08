@@ -7,7 +7,7 @@ const Carousel = () => {
   const [editItem, setEditItem] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:4800/api/carousel')
+    axios.get('https://adminpanel-backend-aijl.onrender.com/api/carousel')
       .then(response => setItems(response.data))
       .catch(error => console.error(error));
   }, []);
@@ -20,7 +20,7 @@ const Carousel = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (editItem) {
-      axios.put(`http://localhost:4800/api/carousel/${editItem._id}`, formData)
+      axios.put(`https://adminpanel-backend-aijl.onrender.com/api/carousel/${editItem._id}`, formData)
         .then(response => {
           setItems(items.map(item => item._id === editItem._id ? response.data : item));
           setFormData({ title: '', subtitle: '', description: '', image: '' });
@@ -28,7 +28,7 @@ const Carousel = () => {
         })
         .catch(error => console.error(error));
     } else {
-      axios.post('http://localhost:4800/api/carousel', formData)
+      axios.post('https://adminpanel-backend-aijl.onrender.com/api/carousel', formData)
         .then(response => {
           setItems([...items, response.data]);
           setFormData({ title: '', subtitle: '', description: '', image: '' });
@@ -43,7 +43,7 @@ const Carousel = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:4800/api/carousel/${id}`)
+    axios.delete(`https://adminpanel-backend-aijl.onrender.com/api/carousel/${id}`)
       .then(() => setItems(items.filter(item => item._id !== id)))
       .catch(error => console.error(error));
   };
