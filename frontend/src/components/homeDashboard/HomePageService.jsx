@@ -7,7 +7,7 @@ const ServiceList = () => {
   const [editService, setEditService] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:4800/api/services')
+    axios.get('https://adminpanel-backend-aijl.onrender.com/api/services')
       .then(response => setServices(response.data))
       .catch(error => console.error(error));
   }, []);
@@ -20,7 +20,7 @@ const ServiceList = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (editService) {
-      axios.put(`http://localhost:4800/api/services/${editService._id}`, formData)
+      axios.put(`https://adminpanel-backend-aijl.onrender.com/api/services/${editService._id}`, formData)
         .then(response => {
           setServices(services.map(service => service._id === editService._id ? response.data : service));
           setFormData({ title: '', description: '', image: '', icon: '' });
@@ -30,7 +30,7 @@ const ServiceList = () => {
           console.error('Error updating service:', error.response ? error.response.data : error.message);
         });
     } else {
-      axios.post('http://localhost:4800/api/services', formData)
+      axios.post('https://adminpanel-backend-aijl.onrender.com/api/services', formData)
         .then(response => {
           setServices([...services, response.data]);
           setFormData({ title: '', description: '', image: '', icon: '' });
@@ -47,7 +47,7 @@ const ServiceList = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:4800/api/services/${id}`)
+    axios.delete(`https://adminpanel-backend-aijl.onrender.com/api/services/${id}`)
       .then(() => setServices(services.filter(service => service._id !== id)))
       .catch(error => console.error(error));
   };
