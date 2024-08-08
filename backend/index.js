@@ -15,9 +15,9 @@ db();
 
 const app = express();
 app.use(cors({
-    origin: 'https://adminpanel-frontend-a858.onrender.com', // Allow your frontend
-    methods: 'GET,POST,PUT,DELETE', // Allow specific methods
-    allowedHeaders: 'Content-Type,Authorization' // Allow specific headers
+    origin: 'https://adminpanel-fe.onrender.com', 
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type,Authorization'
 }));
 
 
