@@ -6,13 +6,13 @@ const ServiceManagement = () => {
     const [newService, setNewService] = useState({ title: '', description: '', icon: '' });
 
     useEffect(() => {
-        axios.get('https://adminpanel-backend-aijl.onrender.com/api/services')
+        axios.get('https://adminpanel-fback.onrender.com/api/services')
             .then(response => setServices(response.data))
             .catch(error => console.error('Error fetching services:', error));
     }, []);
 
     const handleAddService = () => {
-        axios.post('https://adminpanel-backend-aijl.onrender.com/api/services', newService)
+        axios.post('https://adminpanel-fback.onrender.com/api/services', newService)
             .then(response => {
                 setServices([...services, response.data]);
                 setNewService({ title: '', description: '', icon: '' });
