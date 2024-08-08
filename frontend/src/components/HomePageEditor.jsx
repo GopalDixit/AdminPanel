@@ -4,7 +4,7 @@ const HomePageEditor = () => {
   const [content, setContent] = useState({ title: '', description: '' });
 
   useEffect(() => {
-    fetch('https://adminpanel-backend-aijl.onrender.com')
+    fetch('https://adminpanel-backend-aijl.onrender.com/api/services')
       .then(response => response.json())
       .then(data => setContent(data))
       .catch(error => console.error(error));
@@ -17,7 +17,7 @@ const HomePageEditor = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Update home page content
-    fetch('https://adminpanel-backend-aijl.onrender.com', {
+    fetch('https://adminpanel-backend-aijl.onrender.com/api/services', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
