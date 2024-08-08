@@ -14,7 +14,7 @@ function EditContent() {
     });
 
     useEffect(() => {
-        axios.get('http://localhost:4800/api/content/content')
+        axios.get('https://adminpanel-backend-aijl.onrender.com/api/content/content')
             .then(response => setContent(response.data))
             .catch(error => console.error('Error fetching content:', error));
     }, []);
@@ -26,7 +26,7 @@ function EditContent() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:4800/api/content/content', content)
+        axios.post('https://adminpanel-backend-aijl.onrender.com/api/content/content', content)
             .then(response => alert('Content updated!'))
             .catch(error => console.error('Error updating content:', error));
     };
