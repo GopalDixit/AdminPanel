@@ -8,7 +8,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('https://adminpanel-backend-aijl.onrender.com/api/gallery');
+        const response = await fetch('https://adminpanel-fback.onrender.com/api/gallery');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -24,7 +24,7 @@ const Gallery = () => {
 
   const handleAddImage = async () => {
     try {
-      const response = await fetch('https://adminpanel-backend-aijl.onrender.com/api/gallery', {
+      const response = await fetch('https://adminpanel-fback.onrender.com/api/gallery', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const Gallery = () => {
 
   const handleDeleteImage = async (id) => {
     try {
-      const response = await fetch(`https://adminpanel-backend-aijl.onrender.com/api/gallery/${id}`, {
+      const response = await fetch(`https://adminpanel-fback.onrender.com/api/gallery/${id}`, {
         method: 'DELETE',
       });
 
