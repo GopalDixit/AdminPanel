@@ -23,7 +23,7 @@ const AdminDashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:4800/api/contact', {
+      const response = await fetch('https://adminpanel-backend-aijl.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
