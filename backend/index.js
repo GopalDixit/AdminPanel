@@ -14,9 +14,12 @@ const db = require('./database/db');
 db();
 
 const app = express();
-app.use(cors({
-    origin: 'https://adminpanel-frontend-a858.onrender.com', // Replace with your frontend URL
-}));
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://adminpanel-frontend-a858.onrender.com');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+
 app.use(bodyParser.json());
 app.use(express.json());
 
