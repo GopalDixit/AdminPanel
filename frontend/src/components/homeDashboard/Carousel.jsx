@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Carousel = () => {
   const [items, setItems] = useState([]);
-  const [formData, setFormData] = useState({ title: '', subtitle: '', description: '', image: '' });
+  const [formData, setFormData] = useState({ title: '', subtitle: '', image: '' });
   const [editItem, setEditItem] = useState(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Carousel = () => {
       axios.put(`https://adminpanel-fback.onrender.com/api/carousel/${editItem._id}`, formData)
         .then(response => {
           setItems(items.map(item => item._id === editItem._id ? response.data : item));
-          setFormData({ title: '', subtitle: '', description: '', image: '' });
+          setFormData({ title: '', subtitle: '',  image: '' });
           setEditItem(null);
         })
         .catch(error => console.error(error));
@@ -31,14 +31,14 @@ const Carousel = () => {
       axios.post('https://adminpanel-fback.onrender.com/api/carousel', formData)
         .then(response => {
           setItems([...items, response.data]);
-          setFormData({ title: '', subtitle: '', description: '', image: '' });
+          setFormData({ title: '', subtitle: '', image: '' });
         })
         .catch(error => console.error(error));
     }
   };
 
   const handleEdit = (item) => {
-    setFormData({ title: item.title, subtitle: item.subtitle, description: item.description, image: item.image });
+    setFormData({ title: item.title, subtitle: item.subtitle, image: item.image });
     setEditItem(item);
   };
 
@@ -68,14 +68,14 @@ const Carousel = () => {
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           required
         />
-        <textarea
+{/*         <textarea
           name="description"
           value={formData.description}
           onChange={handleChange}
           placeholder="Description"
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           required
-        />
+        /> */}
         <input
           name="image"
           value={formData.image}
